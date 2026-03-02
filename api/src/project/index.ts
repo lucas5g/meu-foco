@@ -6,7 +6,8 @@ const paramsSchema = t.Object({ id: t.String() })
 
 export const project = new Elysia({ prefix: '/projects' })
     .get('/', () => ProjectService.findAll())
-    .post('/', ({ body }) => {
+    .post('/', ({ body, set }) => {
+        set.status = 201
         const data = ProjectModel.createBody.parse(body)
         return ProjectService.create(data)
     })

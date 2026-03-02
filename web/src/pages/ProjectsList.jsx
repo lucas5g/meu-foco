@@ -1,10 +1,54 @@
-import { useState } from 'react'
-import { mockProjects } from '@/data/mockData'
+import { useState, useEffect } from 'react'
+import { apiFetch } from '@/services/api'
 import { CreateProjectModal } from '@/components/CreateProjectModal'
 
 export function ProjectsList() {
-  const [projects] = useState(mockProjects)
+  const [projects, setProjects] = useState([])
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  const handleCreateProject = async (projectData) => {
+    setIsCreateModalOpen(false)
+    try {
+      setIsLoading(true)
+      await apiFetch('/projects', {
+        method: 'POST',
+        body: JSON.stringify(projectData),
+      })
+      await fetchProjects()
+    } catch (error) {
+      console.error('Erro ao criar projeto:', error)
+      setIsLoading(false)
+    }
+  }
+
+  const handleDeleteProject = async (id) => {
+    if (!confirm('Deseja realmente excluir este projeto?')) return
+    try {
+      setIsLoading(true)
+      await apiFetch(`/projects/${id}`, { method: 'DELETE' })
+      await fetchProjects()
+    } catch (error) {
+      console.error('Erro ao excluir projeto:', error)
+      setIsLoading(false)
+    }
+  }
+
+  const fetchProjects = async () => {
+    setIsLoading(true)
+    try {
+      const data = await apiFetch('/projects')
+      setProjects(data)
+    } catch (error) {
+      console.error('Erro ao buscar projetos:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchProjects()
+  }, [])
 
   return (
     <div className="w-full">
@@ -47,9 +91,9 @@ export function ProjectsList() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div
                       className="flex items-center justify-center size-10 rounded-lg"
-                      style={{ backgroundColor: `${project.color}20`, color: project.color }}
+                      style={{ backgroundColor: `${project.color || '#60A5FA'}20`, color: project.color || '#60A5FA' }}
                     >
-                      <span className="material-symbols-outlined leading-none">web</span>
+                      <span className="material-symbols-outlined leading-none">{project.icon || 'web'}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -61,7 +105,7 @@ export function ProjectsList() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-2 text-slate-500 dark:text-text-secondary text-sm">
                       <span className="material-symbols-outlined !text-lg leading-none">check_circle</span>
-                      <span>12 tarefas</span>
+                      <span>{project._count?.tasks || 0} tarefas</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right">
@@ -69,7 +113,7 @@ export function ProjectsList() {
                       <button className="size-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-background-dark text-slate-400 dark:text-text-secondary hover:text-primary dark:hover:text-primary transition-colors cursor-pointer" title="Editar">
                         <span className="material-symbols-outlined !text-[20px] leading-none">edit</span>
                       </button>
-                      <button className="size-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-background-dark text-slate-400 dark:text-text-secondary hover:text-red-400 transition-colors cursor-pointer" title="Excluir">
+                      <button onClick={() => handleDeleteProject(project.id)} className="size-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-background-dark text-slate-400 dark:text-text-secondary hover:text-red-400 transition-colors cursor-pointer" title="Excluir">
                         <span className="material-symbols-outlined !text-[20px] leading-none">delete</span>
                       </button>
                     </div>
@@ -96,7 +140,7 @@ export function ProjectsList() {
         </div>
       </div>
 
-      <CreateProjectModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} onSave={(p) => console.log(p)} />
+      <CreateProjectModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} onSave={handleCreateProject} />
     </div>
   )
 }

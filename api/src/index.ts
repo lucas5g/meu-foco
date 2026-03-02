@@ -3,8 +3,10 @@ import { project } from './project'
 import { task } from './task'
 import { pomodoro } from './pomodoro'
 import { statistics } from './statistics'
+import cors from '@elysiajs/cors'
 
 const app = new Elysia({ prefix: '/api' })
+    .use(cors())
     .use(project)
     .use(task)
     .use(pomodoro)

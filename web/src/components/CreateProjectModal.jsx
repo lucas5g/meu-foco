@@ -11,7 +11,7 @@ const iconOptions = [
     { name: 'more_horiz', label: 'Outros' },
 ]
 
-export function CreateProjectModal({ isOpen, onClose }) {
+export function CreateProjectModal({ isOpen, onClose, onSave }) {
     const [name, setName] = useState('')
     const [selectedIcon, setSelectedIcon] = useState(0)
 
@@ -19,10 +19,13 @@ export function CreateProjectModal({ isOpen, onClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log({
-            name,
-            icon: iconOptions[selectedIcon].name,
-        })
+        if (onSave) {
+            onSave({
+                name,
+                icon: iconOptions[selectedIcon].name,
+                color: '#60A5FA', // default color or generate randomly
+            })
+        }
         setName('')
         setSelectedIcon(0)
         onClose()
@@ -67,13 +70,13 @@ export function CreateProjectModal({ isOpen, onClose }) {
                                             key={opt.name}
                                             onClick={() => setSelectedIcon(idx)}
                                             className={`group flex items-center gap-3 p-2 rounded-lg border transition-all cursor-pointer ${isSelected
-                                                    ? 'border-primary bg-primary/10 dark:bg-primary/20 hover:bg-primary/20 dark:hover:bg-primary/30'
-                                                    : 'border-transparent bg-slate-50 dark:bg-surface-hover hover:border-slate-300 dark:hover:border-surface-border'
+                                                ? 'border-primary bg-primary/10 dark:bg-primary/20 hover:bg-primary/20 dark:hover:bg-primary/30'
+                                                : 'border-transparent bg-slate-50 dark:bg-surface-hover hover:border-slate-300 dark:hover:border-surface-border'
                                                 }`}
                                         >
                                             <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-colors ${isSelected
-                                                    ? 'bg-primary text-background-dark'
-                                                    : 'bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary group-hover:text-primary'
+                                                ? 'bg-primary text-background-dark'
+                                                : 'bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary group-hover:text-primary'
                                                 }`}>
                                                 <span className="material-symbols-outlined text-[20px] leading-none">{opt.name}</span>
                                             </div>

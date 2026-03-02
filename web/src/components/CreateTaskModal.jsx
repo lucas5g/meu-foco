@@ -1,17 +1,40 @@
-import { useState } from 'react'
-import { mockProjects } from '@/data/mockData'
+import { useState, useEffect } from 'react'
+import { apiFetch } from '@/services/api'
 
-export function CreateTaskModal({ isOpen, onClose }) {
+export function CreateTaskModal({ isOpen, onClose, onSave }) {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [projectId, setProjectId] = useState('')
-    const [dueDate] = useState('24 Out, 2023')
+    const [dueDate] = useState(new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).replace(' de ', ' ').replace('.', ''))
+    const [projects, setProjects] = useState([])
+
+    useEffect(() => {
+        if (isOpen) {
+            fetchProjects()
+        }
+    }, [isOpen])
+
+    const fetchProjects = async () => {
+        try {
+            const data = await apiFetch('/projects')
+            setProjects(data)
+        } catch (error) {
+            console.error('Erro ao buscar projetos:', error)
+        }
+    }
 
     if (!isOpen) return null
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log({ title, description, projectId, dueDate })
+        if (onSave) {
+            onSave({
+                title,
+                description,
+                // Only send projectId if it's selected, since it might be optional
+                ...(projectId ? { projectId } : {})
+            })
+        }
         setTitle('')
         setDescription('')
         setProjectId('')
@@ -53,7 +76,7 @@ export function CreateTaskModal({ isOpen, onClose }) {
                                     className="flex w-full appearance-none rounded-lg border border-slate-200 dark:border-surface-border bg-slate-50 dark:bg-background-dark px-3 py-3 text-sm text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 cursor-pointer"
                                 >
                                     <option disabled value="">Selecione um projeto...</option>
-                                    {mockProjects.map(p => (
+                                    {projects.map(p => (
                                         <option key={p.id} value={p.id}>{p.name}</option>
                                     ))}
                                 </select>
