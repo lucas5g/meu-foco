@@ -12,7 +12,8 @@ RUN bun install
 COPY prisma prisma
 RUN bunx prisma generate
 
-# Copia o código-fonte
+# Copia o código-fonte e o tsconfig (necessário para os paths alias tipo @/lib)
+COPY tsconfig.json tsconfig.json
 COPY src src
 
 # Define que estamos rodando em produção
