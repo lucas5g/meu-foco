@@ -11,6 +11,7 @@ const app = new Elysia({ prefix: '/api' })
     .use(task)
     .use(pomodoro)
     .use(statistics)
+    .get('/', () => 'API do meu foco rodando!')
     .listen(3000)
 
 console.log(`🚀 meu foco API rodando em http://localhost:${app.server?.port}`)
