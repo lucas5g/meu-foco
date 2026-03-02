@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modo Foco Pomodoro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#30e8ab",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#11211c",
+                        "surface-dark": "#1a2c26",
+                        "surface-hover": "#233931",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-surface-hover px-4 md:px-10 py-3 bg-white dark:bg-background-dark transition-colors duration-200">
+<div class="flex items-center gap-4">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">check_circle</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">TaskMaster</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-100 dark:bg-surface-dark text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-surface-hover transition-colors" title="Configurações">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-100 dark:bg-surface-dark text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-surface-hover transition-colors" title="Sair">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center p-4 md:p-8 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<div class="w-full max-w-4xl flex flex-col items-center relative z-10 space-y-12">
+<div class="text-center space-y-2 animate-fade-in-down">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-dark/50 border border-primary/10 text-primary text-xs font-medium uppercase tracking-wider mb-2">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+                    Tarefa em Foco
+                </div>
+<h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">Projeto Fênix: Integração de API</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base md:text-lg font-medium">Sessão 3 de 4 • Tempo Total Gasto: <span class="text-primary font-semibold">2h 15m</span></p>
+</div>
+<div class="relative size-[320px] md:size-[400px] flex items-center justify-center">
+<svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+<circle class="text-slate-200 dark:text-surface-dark" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary transition-all duration-1000 ease-linear shadow-[0_0_15px_rgba(48,232,171,0.5)]" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="70" stroke-linecap="round" stroke-width="2"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+<span class="text-7xl md:text-9xl font-bold text-slate-900 dark:text-white tabular-nums tracking-tighter">18:45</span>
+<span class="text-slate-400 dark:text-slate-500 font-medium mt-2 text-lg">restantes</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-8 w-full max-w-md">
+<div class="flex items-center gap-4">
+<button class="group flex items-center justify-center px-4 py-2 rounded-lg bg-surface-dark border border-surface-hover text-slate-300 hover:text-white hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-sm mr-1">remove</span>
+<span class="text-sm font-semibold">5m</span>
+</button>
+<span class="text-slate-500 text-xs font-medium uppercase tracking-widest">Ajustar</span>
+<button class="group flex items-center justify-center px-4 py-2 rounded-lg bg-surface-dark border border-surface-hover text-slate-300 hover:text-white hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-sm mr-1">add</span>
+<span class="text-sm font-semibold">5m</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-6">
+<button aria-label="Reiniciar Temporizador" class="size-14 rounded-full flex items-center justify-center bg-slate-100 dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-surface-hover hover:text-slate-900 dark:hover:text-white transition-all transform hover:scale-105" title="Reiniciar">
+<span class="material-symbols-outlined text-2xl">restart_alt</span>
+</button>
+<button aria-label="Iniciar/Pausar Temporizador" class="size-20 rounded-full flex items-center justify-center bg-primary text-slate-900 hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(48,232,171,0.4)] transition-all transform hover:scale-105 active:scale-95" title="Iniciar/Pausar">
+<span class="material-symbols-outlined text-4xl fill-current font-bold">pause</span>
+</button>
+<button aria-label="Pular Intervalo" class="size-14 rounded-full flex items-center justify-center bg-slate-100 dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-surface-hover hover:text-slate-900 dark:hover:text-white transition-all transform hover:scale-105" title="Pular Intervalo">
+<span class="material-symbols-outlined text-2xl">skip_next</span>
+</button>
+</div>
+</div>
+<div class="w-full max-w-2xl mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-white dark:bg-surface-dark rounded-xl p-4 border border-slate-100 dark:border-surface-hover flex items-center gap-4 transition-colors hover:border-primary/20">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase">Próxima Tarefa</p>
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">Revisar comentários do PR</p>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl p-4 border border-slate-100 dark:border-surface-hover flex items-center gap-4 transition-colors hover:border-primary/20">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase">Foco Hoje</p>
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100">Meta 4h 30m (50%)</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

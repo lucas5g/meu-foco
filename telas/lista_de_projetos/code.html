@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lista de Projetos - PomodoroTask</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#30e8ab",
+              "background-light": "#f6f8f7",
+              "background-dark": "#11211c",
+              "surface-dark": "#1c2623",
+              "surface-border": "#3c534b",
+              "text-secondary": "#9db8af"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-surface-border bg-surface-dark px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined !text-4xl">timer</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">PomodoroTask</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-secondary flex border-none bg-background-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-background-dark focus:border-none h-full placeholder:text-text-secondary px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Pesquisar..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<div class="hidden lg:flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Cronômetro</a>
+<a class="text-primary text-sm font-medium leading-normal border-b-2 border-primary pb-0.5" href="#">Projetos</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Relatórios</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-surface-border" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrAn8RWCMmttXNJOEqLmeCwsJlv1DaEls674KmgW0TzWBFoJByVvaaNduWOWhYVCUL6zFiidC_zwORYiVSegYF0M3KSQIdgzpQAxhDA7o1F9yD5CdagW6nr1bx5LrjHjZeSVdt17zFgmNf6v9LC8GBQMAf7koDy0PxbQCw8gcFpX6-eeNZx0m30A5EBryudjzOWW3PN-t2OgUdRay7rHgYD9LVdgt48hoJF772eRqDDLz5qW2YJ3IyC_rTvSm8IlrDR1peWEHvmyiM");'></div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-40">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 w-full">
+<div class="flex flex-col sm:flex-row flex-wrap justify-between items-start sm:items-center gap-4 p-4 mb-2">
+<div>
+<h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Meus Projetos</h1>
+<p class="text-text-secondary mt-1 text-sm">Gerencie seus fluxos de trabalho e tarefas.</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-background-dark text-sm font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined mr-2 !text-lg">add</span>
+<span class="truncate">Novo Projeto</span>
+</button>
+</div>
+<div class="flex md:hidden px-4 mb-4">
+<div class="flex w-full items-stretch rounded-lg h-10 bg-surface-dark border border-surface-border">
+<div class="text-text-secondary flex items-center justify-center pl-3">
+<span class="material-symbols-outlined !text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-white focus:ring-0 placeholder:text-text-secondary text-sm" placeholder="Buscar projetos..."/>
+</div>
+</div>
+<div class="px-4 py-3">
+<div class="w-full overflow-hidden rounded-xl border border-surface-border bg-surface-dark shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full min-w-[600px] table-fixed">
+<thead>
+<tr class="bg-background-dark/50 border-b border-surface-border">
+<th class="px-6 py-4 text-left text-text-secondary text-xs font-semibold uppercase tracking-wider w-24">Ícone</th>
+<th class="px-6 py-4 text-left text-text-secondary text-xs font-semibold uppercase tracking-wider">Nome do Projeto</th>
+<th class="px-6 py-4 text-left text-text-secondary text-xs font-semibold uppercase tracking-wider w-48">Tarefas</th>
+<th class="px-6 py-4 text-right text-text-secondary text-xs font-semibold uppercase tracking-wider w-32">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-border">
+<tr class="group hover:bg-surface-border/20 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center justify-center size-10 rounded-lg bg-indigo-500/20 text-indigo-400">
+<span class="material-symbols-outlined">web</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium text-base">Redesign do Site</span>
+<span class="text-text-secondary text-xs">Atualizado há 2 horas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span class="material-symbols-outlined !text-lg">check_circle</span>
+<span>12 tarefas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined !text-[20px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-red-400 transition-colors" title="Excluir">
+<span class="material-symbols-outlined !text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-surface-border/20 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center justify-center size-10 rounded-lg bg-emerald-500/20 text-emerald-400">
+<span class="material-symbols-outlined">api</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium text-base">API Backend</span>
+<span class="text-text-secondary text-xs">Atualizado ontem</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span class="material-symbols-outlined !text-lg">check_circle</span>
+<span>8 tarefas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined !text-[20px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-red-400 transition-colors" title="Excluir">
+<span class="material-symbols-outlined !text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-surface-border/20 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center justify-center size-10 rounded-lg bg-blue-500/20 text-blue-400">
+<span class="material-symbols-outlined">school</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium text-base">Estudo de React</span>
+<span class="text-text-secondary text-xs">Atualizado em 24/10</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span class="material-symbols-outlined !text-lg">check_circle</span>
+<span>5 tarefas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined !text-[20px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-red-400 transition-colors" title="Excluir">
+<span class="material-symbols-outlined !text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-surface-border/20 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center justify-center size-10 rounded-lg bg-pink-500/20 text-pink-400">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium text-base">Campanha de Marketing</span>
+<span class="text-text-secondary text-xs">Atualizado em 20/10</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span class="material-symbols-outlined !text-lg">check_circle</span>
+<span>15 tarefas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined !text-[20px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-red-400 transition-colors" title="Excluir">
+<span class="material-symbols-outlined !text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-surface-border/20 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center justify-center size-10 rounded-lg bg-orange-500/20 text-orange-400">
+<span class="material-symbols-outlined">home</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium text-base">Tarefas Domésticas</span>
+<span class="text-text-secondary text-xs">Atualizado em 15/10</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span class="material-symbols-outlined !text-lg">check_circle</span>
+<span>3 tarefas</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined !text-[20px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-background-dark text-text-secondary hover:text-red-400 transition-colors" title="Excluir">
+<span class="material-symbols-outlined !text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 px-2">
+<span class="text-text-secondary text-sm">Mostrando <span class="text-white font-medium">1-5</span> de <span class="text-white font-medium">12</span> projetos</span>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded-lg border border-surface-border bg-surface-dark text-text-secondary hover:bg-surface-border hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="material-symbols-outlined !text-lg">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded-lg bg-primary text-background-dark font-bold text-sm">
+                                    1
+                                </button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-surface-border bg-surface-dark text-text-secondary hover:bg-surface-border hover:text-white transition-colors text-sm">
+                                    2
+                                </button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-surface-border bg-surface-dark text-text-secondary hover:bg-surface-border hover:text-white transition-colors text-sm">
+                                    3
+                                </button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-surface-border bg-surface-dark text-text-secondary hover:bg-surface-border hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

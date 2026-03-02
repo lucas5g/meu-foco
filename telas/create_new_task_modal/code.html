@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nova Tarefa Modal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#30e8ab",
+                        "primary-foreground": "#111815",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#11211c",
+                        "surface-dark": "#1c2623",
+                        "surface-border": "#293833",
+                        "text-secondary": "#9db8af",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex flex-col">
+<div class="flex-1 flex flex-col relative filter blur-sm select-none pointer-events-none opacity-50">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-surface-border px-10 py-3 bg-surface-dark/50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">task_alt</span>
+</div>
+<h2 class="dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">TaskFlow</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64 hidden md:flex">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-secondary flex border-none bg-surface-border items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg dark:text-white focus:outline-0 focus:ring-0 border-none bg-surface-border focus:border-none h-full placeholder:text-text-secondary px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Buscar" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden lg:flex items-center gap-9">
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Tarefas</a>
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Calendário</a>
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Relatórios</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Nova Tarefa</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-surface-border" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvcfKVbTnwm09ujNRJpN3ve2geFg1GKnZMjbw0vb14xQQkKtXxUClhdXIrBoowzaYszqo9zEfI1F41C2GHLGbtjweU0r0_WHwUDho9Ced0yq0HCcm20_MxMYLqgRn1Y-nKDYtNo6fcbtY2B9PX0tPgs1HuCa78CbxvRlYjWGMrqSVCOJ5GwvZNIkClOiLBawwy_ORGzzQoPBn4aqJK2D0pYDsJlo5hbc0it33VV9ythVGst3Wnpjs7GWkfB3mnRkDmfRCjEdHqgHcH");'></div>
+</div>
+</header>
+<main class="flex-1 px-10 py-8 grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="h-64 rounded-xl bg-surface-dark border border-surface-border p-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="h-48 rounded-xl bg-surface-dark border border-surface-border"></div>
+<div class="h-48 rounded-xl bg-surface-dark border border-surface-border"></div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="h-full min-h-[400px] rounded-xl bg-surface-dark border border-surface-border"></div>
+</div>
+</main>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+<div class="relative w-full max-w-lg transform overflow-hidden rounded-2xl bg-surface-dark border border-surface-border shadow-2xl transition-all shadow-black/50">
+<div class="flex items-center justify-between border-b border-surface-border px-6 py-4">
+<h3 class="text-xl font-bold leading-tight dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">add_task</span>
+                    Nova Tarefa
+                </h3>
+<button class="rounded-full p-1 text-text-secondary hover:bg-white/5 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="px-6 py-6 space-y-5">
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none dark:text-gray-300">Data de Criação</label>
+<div class="flex w-full items-center rounded-lg border border-surface-border bg-background-dark/50 px-3 py-2.5 opacity-80 cursor-not-allowed">
+<span class="material-symbols-outlined text-text-secondary mr-2 text-[20px]">calendar_today</span>
+<input class="flex-1 bg-transparent text-sm dark:text-gray-400 focus:outline-none cursor-not-allowed" readonly="" value="24 Out, 2023"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none dark:text-gray-200" for="projectSelect">
+                        Projeto
+                    </label>
+<div class="relative group">
+<select class="flex w-full appearance-none rounded-lg border border-surface-border bg-background-dark px-3 py-3 text-sm dark:text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200" id="projectSelect">
+<option disabled="" selected="" value="">Selecione um projeto...</option>
+<option value="p1">Desenvolvimento Web</option>
+<option value="p2">Marketing Digital</option>
+<option value="p3">Design UI/UX</option>
+<option value="p4">Gestão Interna</option>
+</select>
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-text-secondary group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none dark:text-gray-200" for="taskName">
+                        Nome da Tarefa <span class="text-red-400">*</span>
+</label>
+<div class="relative group">
+<input class="flex w-full rounded-lg border border-surface-border bg-background-dark px-3 py-3 text-sm dark:text-white placeholder:text-text-secondary focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200" id="taskName" placeholder="ex: Criar layout da página inicial"/>
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-text-secondary group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none dark:text-gray-200" for="description">Descrição</label>
+<textarea class="flex w-full min-h-[120px] resize-none rounded-lg border border-surface-border bg-background-dark px-3 py-3 text-sm dark:text-white placeholder:text-text-secondary focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200" id="description" placeholder="Adicione detalhes específicos ou subtarefas..."></textarea>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 bg-surface-dark/50 px-6 py-4 border-t border-surface-border">
+<button class="inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-surface-dark">
+                    Cancelar
+                </button>
+<button class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground hover:bg-primary/90 transition-all shadow-[0_0_15px_-3px_rgba(48,232,171,0.3)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-dark">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                    Salvar
+                </button>
+</div>
+</div>
+</div>
+</body></html>

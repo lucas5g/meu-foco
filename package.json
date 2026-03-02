@@ -1,0 +1,12 @@
+{
+    "name": "meu-foco",
+    "private": true,
+    "workspaces": [
+        "api",
+        "web"
+    ],
+    "scripts": {
+        "dev:server": "cd api && npm run dev",
+        "dev:web": "cd web && npm run dev"
+    }
+}

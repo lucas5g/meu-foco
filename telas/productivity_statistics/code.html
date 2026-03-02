@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estatísticas de Produtividade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#30e8ab",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#11211c",
+                        "surface-dark": "#162b25",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col overflow-x-hidden">
+<div class="relative flex h-full w-full flex-col group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#293833] px-10 py-4 bg-surface-light dark:bg-surface-dark">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">timer</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">FocusTask</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Painel</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Tarefas</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Calendário</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Estatísticas</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Configurações</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<div class="hidden sm:flex relative w-full max-w-xs">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-100 dark:bg-[#1f362e] py-2 pl-10 pr-4 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6" placeholder="Buscar tarefas..." type="text"/>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="User profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCelUZfdY-tcybBAJSqznLkBvZNjOWcbVNq_ef-cGVMgyx-tMt1ssn3_r3EOJeCaarF03PoIXR25lrqVSUcdYq4foBuxfFUZEmfAqjjmBZYnOxKlWiXFzQpzN0s5ho-sK5K1GW3dMzvTPpLfXi3YC9WqscK9PrPm5IMoD3do6fO7OjJ9vRzQWGuWdKWjgjhz_hVWLL6ZBWYGMCIz5fDh1MW80OeLRBFR62SmV-VEt12p25W8GonRuCRnuA5tIgdTVGh0Y25icS7YVOT");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-8 py-8 w-full max-w-[1400px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">Estatísticas de Produtividade</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-medium">21 de Agosto - 27 de Agosto, 2023</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-background-dark font-bold text-sm transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Exportar Relatório</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm relative overflow-hidden group">
+<div class="absolute right-[-20px] top-[-20px] size-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start justify-between z-10">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">hourglass_top</span>
+</div>
+<span class="inline-flex items-center gap-1 rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-500 ring-1 ring-inset ring-green-500/20">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +12%
+                        </span>
+</div>
+<div class="z-10">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Tempo Total de Foco</p>
+<p class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">32h 15m</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm relative overflow-hidden group">
+<div class="absolute right-[-20px] top-[-20px] size-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start justify-between z-10">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="inline-flex items-center gap-1 rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-500 ring-1 ring-inset ring-green-500/20">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +5%
+                        </span>
+</div>
+<div class="z-10">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Sessões Pomodoro</p>
+<p class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">48</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm relative overflow-hidden group">
+<div class="absolute right-[-20px] top-[-20px] size-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start justify-between z-10">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<span class="inline-flex items-center gap-1 rounded-full bg-red-500/10 px-2 py-1 text-xs font-medium text-red-500 ring-1 ring-inset ring-red-500/20">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                            -2%
+                        </span>
+</div>
+<div class="z-10">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Tarefas Concluídas</p>
+<p class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">24</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm p-6">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">Visão Geral do Tempo de Foco</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-slate-500 dark:text-slate-400 text-sm">Média diária de foco:</span>
+<span class="text-slate-900 dark:text-white font-bold text-sm">5.4 hrs</span>
+</div>
+</div>
+<select class="bg-slate-100 dark:bg-[#1f362e] border-none text-slate-700 dark:text-slate-300 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2">
+<option>Esta Semana</option>
+<option>Semana Passada</option>
+<option>Mês Passado</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 sm:gap-4 px-2">
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300 rounded-t-lg" style="height: 25%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Seg</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300 rounded-t-lg" style="height: 45%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Ter</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary transition-all duration-300 rounded-t-lg shadow-[0_0_15px_-3px_rgba(48,232,171,0.5)]" style="height: 85%;"></div>
+</div>
+<span class="text-xs font-bold text-primary">Qua</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300 rounded-t-lg" style="height: 55%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Qui</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300 rounded-t-lg" style="height: 65%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Sex</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-slate-300 dark:bg-slate-600 rounded-t-lg" style="height: 20%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Sáb</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group">
+<div class="relative w-full max-w-[40px] bg-slate-100 dark:bg-[#1f362e] rounded-t-lg h-full flex items-end overflow-hidden">
+<div class="w-full bg-slate-300 dark:bg-slate-600 rounded-t-lg" style="height: 10%;"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Dom</span>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm p-6 flex flex-col">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-6">Distribuição por Tarefa</h3>
+<div class="flex-1 flex flex-col justify-center items-center">
+<div class="relative size-48 rounded-full mb-8" style="background: conic-gradient(#30e8ab 0% 45%, #6366f1 45% 70%, #ec4899 70% 85%, #94a3b8 85% 100%);">
+<div class="absolute inset-0 m-auto size-32 bg-surface-light dark:bg-surface-dark rounded-full flex items-center justify-center">
+<div class="text-center">
+<p class="text-2xl font-bold text-slate-900 dark:text-white">124</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Tarefas</p>
+</div>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary"></div>
+<span class="text-slate-600 dark:text-slate-300">Desenvolvimento</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">45%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-indigo-500"></div>
+<span class="text-slate-600 dark:text-slate-300">Design</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">25%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-pink-500"></div>
+<span class="text-slate-600 dark:text-slate-300">Reuniões</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">15%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-slate-400"></div>
+<span class="text-slate-600 dark:text-slate-300">Outros</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">15%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-[#293833] shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-[#293833] flex justify-between items-center">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">Sessões de Foco Recentes</h3>
+<a class="text-primary text-sm font-bold hover:underline" href="#">Ver Tudo</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-slate-500 dark:text-slate-400">
+<thead class="bg-slate-50 dark:bg-[#1f362e] text-xs uppercase text-slate-700 dark:text-slate-300">
+<tr>
+<th class="px-6 py-3 font-semibold" scope="col">Nome da Tarefa</th>
+<th class="px-6 py-3 font-semibold" scope="col">Categoria</th>
+<th class="px-6 py-3 font-semibold" scope="col">Duração</th>
+<th class="px-6 py-3 font-semibold" scope="col">Data</th>
+<th class="px-6 py-3 font-semibold text-right" scope="col">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-[#293833]">
+<tr class="bg-surface-light dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-[#1c3029] transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Atualização do Design System</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">Design</span>
+</td>
+<td class="px-6 py-4">45m</td>
+<td class="px-6 py-4">Hoje, 10:30</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 text-green-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Concluído
+                                </span>
+</td>
+</tr>
+<tr class="bg-surface-light dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-[#1c3029] transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Preparação para Reunião com Cliente</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">Reuniões</span>
+</td>
+<td class="px-6 py-4">25m</td>
+<td class="px-6 py-4">Hoje, 09:15</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 text-green-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Concluído
+                                </span>
+</td>
+</tr>
+<tr class="bg-surface-light dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-[#1c3029] transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Correções na Integração da API</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Desenvolvimento</span>
+</td>
+<td class="px-6 py-4">1h 15m</td>
+<td class="px-6 py-4">Ontem, 14:00</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 text-green-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Concluído
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

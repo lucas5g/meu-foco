@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro de Projeto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#30e8ab",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#111815",
+                        "surface-dark": "#1c2623",
+                        "surface-highlight": "#293833",
+                        "text-primary-dark": "#ffffff",
+                        "text-secondary-dark": "#9db8af",
+                        "border-dark": "#3c534b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4">
+<!-- Modal Container -->
+<div class="relative w-full max-w-[520px] bg-white dark:bg-surface-dark rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-border-dark flex flex-col">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-slate-100 dark:border-border-dark flex justify-between items-center">
+<h3 class="text-slate-900 dark:text-text-primary-dark tracking-tight text-xl font-bold leading-tight">Novo Projeto</h3>
+<button class="text-slate-400 dark:text-text-secondary-dark hover:text-slate-600 dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="px-6 py-6 flex flex-col gap-6 overflow-y-auto max-h-[70vh]">
+<!-- Project Name Input -->
+<label class="flex flex-col gap-2">
+<p class="text-slate-900 dark:text-text-primary-dark text-sm font-medium leading-normal">Nome do Projeto</p>
+<input class="form-input w-full rounded-lg text-slate-900 dark:text-text-primary-dark placeholder:text-slate-400 dark:placeholder:text-text-secondary-dark bg-slate-50 dark:bg-background-dark border border-slate-200 dark:border-border-dark focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-base transition-colors" placeholder="Digite o nome do seu projeto..." value=""/>
+</label>
+<!-- Icon Selection -->
+<div class="flex flex-col gap-3">
+<h2 class="text-slate-900 dark:text-text-primary-dark text-base font-bold leading-tight">Escolha um ícone</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<!-- Icon Item: Selected State Example -->
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-primary bg-primary/10 dark:bg-primary/20 transition-all hover:bg-primary/20 dark:hover:bg-primary/30 cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary text-background-dark">
+<span class="material-symbols-outlined text-[20px]">work</span>
+</div>
+<span class="text-slate-900 dark:text-text-primary-dark text-sm font-medium">Trabalho</span>
+</button>
+<!-- Icon Item: Default State -->
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Pessoal</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Estudo</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Saúde</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Código</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Design</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">home</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Casa</span>
+</button>
+<button class="group flex items-center gap-3 p-2 rounded-lg border border-transparent bg-slate-50 dark:bg-surface-highlight hover:border-slate-300 dark:hover:border-border-dark transition-all cursor-pointer">
+<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white dark:bg-background-dark text-slate-500 dark:text-text-secondary-dark group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</div>
+<span class="text-slate-600 dark:text-slate-200 text-sm font-medium">Outros</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-6 py-5 border-t border-slate-100 dark:border-border-dark flex justify-end gap-3 bg-slate-50 dark:bg-surface-dark/50">
+<button class="h-10 px-5 rounded-lg border border-slate-200 dark:border-border-dark text-slate-700 dark:text-text-secondary-dark font-bold text-sm hover:bg-slate-100 dark:hover:bg-surface-highlight transition-colors">
+                Cancelar
+            </button>
+<button class="h-10 px-5 rounded-lg bg-primary hover:bg-primary/90 text-background-dark font-bold text-sm shadow-lg shadow-primary/20 transition-all">
+                Salvar Projeto
+            </button>
+</div>
+</div>
+</body></html>

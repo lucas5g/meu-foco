@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #30e8ab;
+  --color-primary-hover: #28cc96;
+  --color-primary-foreground: #111815;
+  --color-background-light: #f6f8f7;
+  --color-background-dark: #11211c;
+  --color-surface-dark: #1c2623;
+  --color-surface-light: #ffffff;
+  --color-surface-hover: #233931;
+  --color-surface-border: #293833;
+  --color-surface-elevated: #243029;
+  --color-text-primary: #e8f5f0;
+  --color-text-secondary: #9db8af;
+  --color-text-muted: #6b8a7e;
+
+  --font-family-display: "Inter", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+
+  --animate-fade-in-down: fade-in-down 0.5s ease-out forwards;
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+}
+
+/* Material Symbols injected below via link in index.html, we don't need font-face here but setting root helps */
+
+/* Enforcing dark mode by default if user hasn't toggled */
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-family-display);
+  background-color: var(--color-background-dark);
+  color: #fff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
