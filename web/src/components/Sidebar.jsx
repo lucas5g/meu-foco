@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 const navItems = [
     { to: '/tarefas', icon: 'checklist', label: 'Minhas Tarefas' },
     { to: '/projetos', icon: 'folder_open', label: 'Projetos' },
-    { to: '/pomodoro', icon: 'timer', label: 'Pomodoro' },
     { to: '/estatisticas', icon: 'bar_chart', label: 'Estatísticas' },
 ]
 
