@@ -1,10 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+
+  // url      = env("DATABASE_URL")
 }
 
 model Project {
@@ -40,9 +42,9 @@ model PomodoroSession {
   duration Int
 
   taskId String?
-  task   Task?  @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  task   Task?   @relation(fields: [taskId], references: [id], onDelete: SetNull)
 
   startedAt  DateTime
   finishedAt DateTime?
-  createdAt  DateTime @default(now())
+  createdAt  DateTime  @default(now())
 }

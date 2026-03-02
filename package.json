@@ -1,12 +1,22 @@
 {
     "name": "meu-foco",
     "private": true,
+    "scripts": {
+        "dev:server": "cd api && npm run dev",
+        "dev:web": "cd web && npm run dev"
+    },
     "workspaces": [
         "api",
         "web"
     ],
-    "scripts": {
-        "dev:server": "cd api && npm run dev",
-        "dev:web": "cd web && npm run dev"
+    "devDependencies": {
+        "@types/pg": "^8.18.0",
+        "prisma": "^7.4.2"
+    },
+    "dependencies": {
+        "@prisma/adapter-pg": "^7.4.2",
+        "@prisma/client": "^7.4.2",
+        "dotenv": "^17.3.1",
+        "pg": "^8.19.0"
     }
 }
