@@ -12,6 +12,9 @@ const app = new Elysia({ prefix: '/api' })
     .use(pomodoro)
     .use(statistics)
     .get('/', () => 'API do meu foco rodando!')
-    .listen(3000)
+    .listen({
+        port: process.env.PORT ? Number(process.env.PORT) : 3000,
+        hostname: '0.0.0.0'
+    })
 
-console.log(`🚀 meu foco API rodando em http://localhost:${app.server?.port}`)
+console.log(`🚀 meu foco API rodando em http://${app.server?.hostname}:${app.server?.port}`)
